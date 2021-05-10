@@ -1,0 +1,54 @@
+class zwierze:
+    def __init__(self, czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie):
+        self.czyogon = czyogon
+        self.iloscnog = iloscnog
+        self.czyjogurt = czyjogurt
+        self.iloscoczu = iloscoczu
+        self.czydzikie = czydzikie
+class kot(zwierze):
+    def __init__(self,czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie, rasakota):
+        super().__init__(czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie)
+        self.rasakota = rasakota
+    def wypisz(self):
+        print(self.czyogon,self.iloscnog,self.czyjogurt,self.iloscoczu,self.czydzikie,self.rasakota)
+    def ocenkakota(self):
+        ocena = 50
+        if self.iloscnog == 4:
+            ocena = ocena+12
+        else:
+            ocena = ocena-12
+        if self.czyogon == "tak":
+            ocena = ocena + 8
+        else:
+            ocena = ocena - 8
+        if self.iloscoczu ==2:
+            ocena = ocena +5
+        else:
+            ocena = ocena -5
+        if self.czydzikie == "tak":
+            ocena = ocena -5
+        else:
+            ocena = ocena + 5
+        if self.czyjogurt == "tak":
+            ocena = ocena +20
+        else:
+            ocena = ocena - 20
+        print("Ocena twojego kotka to: ",ocena)
+
+class pies(zwierze):
+    def __init__(self,czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie, rasapsa):
+        super().__init__(czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie, rasapsa)
+        self.rasapsa = rasapsa
+
+class ryba(zwierze):
+    def __init__(self,czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie, gatunekrybki):
+        super().__init__(czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie)
+        self.gatunekrybki = gatunekrybki
+
+class ptak(zwierze):
+    def __init__(self,czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie, gatunekptaszka):
+        super().__init__(czyogon, iloscnog, czyjogurt, iloscoczu, czydzikie)
+        self.gatunekptaszka = gatunekptaszka
+
+mruczek = kot("tak",4,"nie",2,"nie","nie wiem")
+mruczek.ocenkakota()
