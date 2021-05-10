@@ -1,0 +1,33 @@
+class pojazd:
+    def __init__(self,marka,model,cena,poj_silnika,paliwo,przebieg,nr_tablicy,bak):
+        self.marka = marka
+        self.model = model
+        self.cena = cena
+        self.poj_silnika = poj_silnika
+        self.paliwo = paliwo
+        self.przebieg = przebieg
+        self.nr_tablicy = nr_tablicy
+        self.bak = bak
+    def tankowanie(self):
+        print("Zatankuj",self.paliwo)
+    def stan_baku(self):
+        print("Stan twojego baku wynosi: ",self.bak)
+        wybor = input("Czy zatankować?")
+        if wybor == "Tak" or wybor == "tak":
+            self.tankowanie()
+        else:
+            print("No to nie")
+class Samochod(pojazd):
+    def __init__(self,marka,model,cena,poj_silnika,paliwo,przebieg,ilosc_drzwi,poj_bagaznika,nr_tablicy,bak):
+        super().__init__(marka,model,cena,poj_silnika,paliwo,przebieg,nr_tablicy,bak)
+        self.ilosc_drzwi = ilosc_drzwi
+        self.poj_bagaznika = poj_bagaznika
+class Motor(pojazd):
+    def __init__(self,marka,model,cena,poj_silnika,paliwo,przebieg,ilosc_miejsc,bak):
+        super().__init__(marka,model,cena,poj_silnika,paliwo,przebieg,bak)
+        self.ilosc_miejsc = ilosc_miejsc
+
+
+samochodzik = Samochod("Fiat","124","13000","1.6","benzyna","250000","5","3001","ABC-1234","10l")
+
+samochodzik.stan_baku()
