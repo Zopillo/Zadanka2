@@ -1,0 +1,56 @@
+pokoj = [[0 for i in range(10)] for j in range(10)]
+pokoj[2][3] = 2
+
+
+class hotelek:
+#Ten chotel jest magiczny, ma 10 pieter, na kazdym 10 pokoi i jest wyrazany w postaci tablicy dwuwymiarowe
+#pokoje do 5 piętra są 2-osobowe
+#pokoje do 10 piętra są 4-osobowe
+    def dodawanie(self):
+        x = int(input("Prosze podac pietro: ")) - 1
+        if x>10:
+            print("Nasz chotel ma tylko 10 pieter, prosze wpisac poprawne pietro")
+            return
+        y = int(input("Prosze podac pokoj: ")) - 1
+        if y>10:
+            print("Nasz chotel ma tylko 10 pokoi na każdym piętrze, prosze wpisać poprawny numer pokoju")
+            return
+        if pokoj[x][y] == 0:
+            print("Pokoj jest wolny", pokoj[x][y],"Czy chcesz dodac goscia? tak/nie: ")
+            odp = input()
+            if odp == "nie" or odp == "Nie":
+                print("No to nie")
+            else:
+                odp2 = int(input("Ile osob?"))
+                if odp2 > 2 and x>=5:
+                    print("Tyle osob sie nie zmiesci, polecam pokoj na pietrach wyzej")
+                elif odp2 <=2 and x>=5:
+                    pokoj[x][y] = odp2
+                    print("Zapraszam")
+                elif odp2 > 4:
+                    print("Niestety nie ma miejsca dla tylu osob")
+                else:
+                    print("Zapraszam")
+
+
+        elif x<=5 and pokoj[x][y] != 2:
+            print("Pokoj jest zajety, mieszka w nim jedna osoba")
+        elif x<=5 and pokoj[x][y]==2:
+            print("Pokoj jest zajety")
+        elif x<10 and pokoj[x][y] == 4:
+            print("Pokoj jest zajety")
+        elif x<=10 and pokoj[x][y] != 4:
+            print("Pokoj jest zajety, mieszka w nim",pokoj[x][x],"ludzi")
+    def usuwanie(self):
+        x = int(input("Jakie pietro ma nasz gosc? "))-1
+        y = int(input("Jaki pokoj?"))-1
+        if pokoj[x][y] != 0:
+            pokoj[x][y] = 0
+            print("Juz nie sa naszymi goscmi")
+
+
+
+
+hotel = hotelek()
+hotel.dodawanie()
+hotel.usuwanie()
