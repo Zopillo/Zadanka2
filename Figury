@@ -1,0 +1,63 @@
+class figura:
+    def __init__(self, bokA, bokB):
+        self.bokA = bokA
+        self.bokB = bokB
+class kwadrat(figura):
+    def __init__(self,bokA,bokB):
+        super().__init__(bokA,bokB)
+    def polekwadrata(self):
+        pole = self.bokA * self.bokB
+        print(pole)
+    def obwodkwadrata(self):
+        obwod = self.bokA*2 + self.bokB*2
+        print(obwod)
+class trojkat(figura):
+    def __init__(self, bokA, bokB, bokC, wysokosc):
+        super().__init__(bokA, bokB)
+        self.bokC = bokC
+        self.wysokosc = wysokosc
+    def poletrojkata(self):
+        pole = self.bokA * self.wysokosc /2
+        print(pole)
+    def obwodtrojkata(self):
+        obwodtrojkata = self.bokA + self.bokB + self.bokC
+        print(obwodtrojkata)
+class kolo:
+    def __init__(self, promien):
+        self.promien = promien
+    def polekola(self):
+        polekola = 3.14 * self.promien *self.promien
+        print(polekola)
+    def obwodkola(self):
+        obwodkola = 6.28 * self.promien
+        print(obwodkola)
+class romb(figura):
+    def __init__(self, bokA,bokB, wysokosc):
+        super().__init__(bokA,bokB)
+        self.wysokosc = wysokosc
+    def polerombu(self):
+        polerombu = self.bokA * self.wysokosc
+        print(polerombu)
+    def obwodrombu(self):
+        obwodrombu = self.bokA*2 + self.bokB *2
+        print(obwodrombu)
+class trapez(trojkat):
+    def __init__(self,bokA, bokB, bokC, bokD, wysokosc):
+        super().__init__(bokA,bokB,bokC,wysokosc)
+        self.bokD = bokD
+    def poletrapeza(self):
+        poletrapeza = self.bokA + self.bokB *self.wysokosc /2
+        print(poletrapeza)
+    def obwodtrapeza(self):
+        obwodtrapeza = self.bokA + self.bokB + self.bokC + self.bokD
+        print(obwodtrapeza)
+
+
+kwadracik = kwadrat(12,10)
+kwadracik.polekwadrata()
+
+trojkacik = trojkat(4,5,2,10)
+trojkacik.poletrojkata()
+
+koleczko = kolo(12)
+koleczko.polekola()
