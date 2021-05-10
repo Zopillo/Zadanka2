@@ -1,0 +1,56 @@
+import sqlite3
+conn = sqlite3.connect('pracownicy.db')
+conn.executescript("""DROP TABLE IF EXISTS pracownicy;
+            CREATE TABLE IF NOT EXISTS pracownicy(
+            NAME TEXT NOT NULL,
+            SURNAME TEXT NOT NULL,
+            ZAROBKI INT NOT NULL,
+            MIEJSCOWOSC TEXT NOT NULL);""")
+conn.execute("INSERT INTO pracownicy (NAME,SURNAME,ZAROBKI,MIEJSCOWOSC) VALUES ('JANEK', 'DZBANEK', '2300', 'WROCLAW')")
+conn.execute("INSERT INTO pracownicy (NAME,SURNAME,ZAROBKI,MIEJSCOWOSC) VALUES ('MICHAL', 'NIEKICHAL', '2137', 'GRABISZYNEK')")
+conn.execute("INSERT INTO pracownicy (NAME,SURNAME,ZAROBKI,MIEJSCOWOSC) VALUES ('MARCIN', 'PROCHOWICZ', '32000', 'SZCZECIN')")
+cursor = conn.execute("SELECT NAME, SURNAME, ZAROBKI, MIEJSCOWOSC from pracownicy")
+def AddPracownik():
+    name = input("Podaj imie: ")
+    surname = input("Podaj nazwisko: ")
+    zarobki = input("Podaj zarobki: ")
+    miejscowosc = input("Podaj miejscowosc: ")
+    conn.execute("INSERT INTO pracownicy (NAME,SURNAME,ZAROBKI,MIEJSCOWOSC) VALUES ('{}', '{}', '{}', '{}')".format(name, surname, zarobki, miejscowosc))
+def ShowAllPracowniks():
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+def ShowAllPracowniksInOrder():
+    cur = conn.execute(f'SELECT * FROM pracownicy ORDER BY NAME ASC;')
+    for row in cur:
+        print(row)
+def ShowBieda():
+    cur = conn.execute(f'SELECT MIN(zarobki) FROM pracownicy;')
+    for row in cur:
+        print(row)
+def ShowBogactwo():
+    cur = conn.execute(f'SELECT MAX(zarobki) FROM pracownicy;')
+    for row in cur:
+        print(row)
+def UsunCwela():
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+    value = input("Podaj nazwisko osoby, ktora chcesz usunac: ")
+    conn.execute(f'DELETE FROM pracownicy WHERE surname = "{value}";')
+def Update():
+    sett3 = input("Kogo chcesz ruszyć, chodzi o imie: ")
+    sett4 = input("Dawaj jeszcze jego nazwisko: ")
+   # sett = input("Podaj co chcesz updejtnac NAME/SURNAME/ZAROBKI/MIEJSCOWOSC: ")
+    sett2 = input("Podaj wartosc zamienna: ")
+    conn.execute(f'UPDATE pracownicy SET NAME = "{sett2}" WHERE NAME= "{sett3}" AND SURNAME = "{sett4}";')
+    ShowAllPracowniks()
+#no ten update i usuwanie troszkę średnio działa
+#AddPracownik()
+#ShowAllPracowniks()
+#ShowAllPracowniksInOrder()
+#ShowBieda()
+#ShowBogactwo()
+#UsunCwela()
+Update()
+#Update i usuwanie coś nie chce działać do końca
