@@ -1,0 +1,47 @@
+class restaurant:
+    def __init__(self,nazwa,lokalizacja):
+        self.nazwa = nazwa
+        self.lokalizacja = lokalizacja
+class IceCreamStand(restaurant):
+    def __init__(self,nazwa,lokalizacja,menu):
+        super().__init__(nazwa,lokalizacja)
+        self.menu = menu
+    def smaki(self):
+        print("To są dostępne smaki w lodziarni: ")
+        print(self.menu)
+    def mieszanie(self):
+        print("Witaj w mieszalni smaków!")
+        print("Powiedz proszę jakie smaki chcesz mieć w lodach: ")
+        print(self.menu)
+        wybor = int(input("Wybierz je z listy wyżej, jeżeli chcesz przerwać, naciśnij 0: "))
+        if wybor != 0:
+            if wybor == 1:
+                print("Wybrałeś smak: ",smakilodziarnia[0])
+            if wybor == 2:
+                print("Wybrałeś smak: ",smakilodziarnia[1])
+            if wybor == 3:
+                print("Wybrałeś smak: ",smakilodziarnia[2])
+        else:
+            pass
+        wybor2 = int(input("Wybierz drugi smak, aby przerwać naciśnij 0: "))
+        if wybor2 != 0:
+            if wybor2 == 1:
+                print("Wybrałeś smak: ", smakilodziarnia[0])
+            if wybor2 == 2:
+                print("Wybrałeś smak: ", smakilodziarnia[1])
+            if wybor2 == 3:
+                print("Wybrałeś smak: ", smakilodziarnia[2])
+        else:
+            pass
+        if wybor == 1 or wybor2 == 1:
+            if wybor == 2 or wybor2 == 2:
+                print("Twoje lody są waniliowo-czekoladowe")
+            if wybor == 3 or wybor2 == 3:
+                print("Twoje lody są waniliowo-truskawkowe")
+        if wybor == 2 or wybor2 == 2:
+            if wybor == 3 or wybor2 == 3:
+                print("Twoje lody są czekoladowo-truskawkowe")
+
+smakilodziarnia = ["1. Waniliowe","2. Czekoladowe","Truskawkowe"]
+Lodziarnia = IceCreamStand("Lody dla ochłody","Centrum miasta",smakilodziarnia)
+Lodziarnia.mieszanie()
