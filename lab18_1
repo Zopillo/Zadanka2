@@ -1,0 +1,14 @@
+import linecache
+#tadek = open("pantadeusz.txt").read()
+tadek = open("pantadeusz.txt","r")
+
+#print(tadek)
+
+wiersz = linecache.getline('pandateusz.txt', 8)
+wiersz2 = linecache.getline('pandateusz.txt', 12)
+wiersz3 = linecache.getline('pandateusz.txt', 60)
+wiersz4 = linecache.getline('pandateusz.txt', 98)
+print(wiersz)
+print(wiersz2)
+print(wiersz3)
+print(wiersz4)
