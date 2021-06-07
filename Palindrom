@@ -1,0 +1,11 @@
+def czypalindrom(pal):
+    palindrom = ''.join(reversed(list(pal)))
+    if pal == palindrom:
+        print(f'słowo {pal} jest palindromem')
+    else:
+        print(f'słowo {pal} nie jest palindromem')
+
+
+if __name__ == '__main__':
+    slowo = str(input("Podaj słowo do zbadania\n"))
+    czypalindrom(slowo)
