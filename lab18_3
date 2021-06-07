@@ -1,0 +1,21 @@
+rom collections import deque
+import time
+
+time1 = open("time1.txt","a+")
+
+start_time = time.time()
+kolejka = deque([])
+x = 0
+while x <= 50:
+    kolejka.append(x)
+    x = x+1
+print(kolejka)
+while len(kolejka)!=0:
+    kolejka.pop()
+    print(kolejka)
+
+str = ("--- %s seconds ---" % (time.time() - start_time))
+
+time1.write(str)
+time1.write("\n")
+time1.close()
